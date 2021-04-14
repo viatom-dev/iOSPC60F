@@ -12,7 +12,7 @@
 
   1、通信功能
 
-  用于使用 Bluetooth 的 iOS 设备与作为外设的 PC_60F 进行通信，可以从中获取各类数据。 
+  用于使用 Bluetooth 的 iOS 设备与作为外设的 PC_60F 进行通信，可以从中获取各类存储数据以及 minimonitor 模式下的实时数据 
 
   2、解析功能
 
@@ -34,15 +34,15 @@ CRAP20SDK.h, CRBleDevice.h, CRBlueToothManager.h, libSpO2SDK.a
 
 **处理中央和外设的蓝牙连接类，是一个单例。**
 
-遵循代理：<CRBlueToothManagerDelegate>
+遵循代理：CRBlueToothManagerDelegate
 
 - 当前 iOS 设备的蓝牙状态返回
 
-  回调：【- (void)bleManager:(CRBlueToothManager *)manager didUpdateState:(CBManagerState)state】
+  回调：- (void)bleManager:(CRBlueToothManager *)manager didUpdateState:(CBManagerState)state
 
 - 扫描蓝牙设备。
 
-  通过回调  【- (void)bleManager:(CRBlueToothManager *)manager didSearchCompleteWithResult:(NSArray<CRBleDevice *> *)deviceList】  从扫描到的设备列表中筛选出需要的。
+  通过回调  - (void)bleManager:(CRBlueToothManager *)manager didSearchCompleteWithResult:(NSArray<CRBleDevice *> *)deviceList  从扫描到的设备列表中筛选出需要的。
 
 ```objective-c
 - (void)startSearchDevicesForSeconds:(NSUInteger)seconds;
@@ -56,9 +56,9 @@ CRAP20SDK.h, CRBleDevice.h, CRBlueToothManager.h, libSpO2SDK.a
 
 - 连接某一蓝牙设备，此方法调用前提是扫描到了符合条件的设备。
 
-  连接成功的回调：【- (void)bleManager:(CRBlueToothManager *)manager didConnectDevice:(CRBleDevice *)device】。
+  连接成功的回调：- (void)bleManager:(CRBlueToothManager *)manager didConnectDevice:(CRBleDevice *)device
 
-  连接失败的回调：【- (void)bleManager:(CRBlueToothManager *)manager didFailToConnectDevice:(CRBleDevice *)device Error:(NSError *)error】。
+  连接失败的回调：- (void)bleManager:(CRBlueToothManager *)manager didFailToConnectDevice:(CRBleDevice *)device Error:(NSError *)error
 
 ```objective-c
 - (void)connectDevice:(CRBleDevice *)device;
@@ -66,7 +66,7 @@ CRAP20SDK.h, CRBleDevice.h, CRBlueToothManager.h, libSpO2SDK.a
 
 - 断开与设备的蓝牙连接；此方法调用的前提是已经与设备建立蓝牙连接。
 
-  成功断开连接的回调：【- (void)bleManager:(CRBlueToothManager *)manager didDisconnectDevice:(CRBleDevice *)device Error:(NSError *)error】。
+  成功断开连接的回调：- (void)bleManager:(CRBlueToothManager *)manager didDisconnectDevice:(CRBleDevice *)device Error:(NSError *)error
 
 ```objective-c
 - (void)disconnectDevice:(CRBleDevice *)device;
@@ -80,15 +80,15 @@ CRAP20SDK.h, CRBleDevice.h, CRBlueToothManager.h, libSpO2SDK.a
 
 **为SDK对外暴露的方法，内部封装了蓝牙通信的数据处理逻辑，是一个单例。**
 
-遵循代理：<CRAP20SDKDelegate>
+遵循代理：CRAP20SDKDelegate
 
 - 接收血氧参数。
 
-  在想要接收该数据的控制器中实现对应的代理方法：【- (void)ap_20SDK:(CRAP20SDK *)ap_20SDK GetSpo2Value:(int)spo2 PulseRate:(int)pr PI:(int)pi State:(CRAP_20Spo2State)state Mode:(CRAP_20Spo2Mode)mode BattaryLevel:(int)battaryLevel FromDevice:(CRBleDevice *)device】。
+  在想要接收该数据的控制器中实现对应的代理方法：- (void)ap_20SDK:(CRAP20SDK *)ap_20SDK GetSpo2Value:(int)spo2 PulseRate:(int)pr PI:(int)pi State:(CRAP_20Spo2State)state Mode:(CRAP_20Spo2Mode)mode BattaryLevel:(int)battaryLevel FromDevice:(CRBleDevice *)device
 
 - 查询设备序列号。
 
-  查询成功的回调：【- (void)ap_20SDK:(CRAP20SDK *)ap_20SDK GetSerialNumber:(NSString *)serialNumber FromDevice:(CRBleDevice *)device】。
+  查询成功的回调：- (void)ap_20SDK:(CRAP20SDK *)ap_20SDK GetSerialNumber:(NSString *)serialNumber FromDevice:(CRBleDevice *)device
 
 ```objective-c
 - (void)queryForSerialNumberForDevice:(CRBleDevice *)device;
