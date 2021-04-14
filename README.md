@@ -34,7 +34,7 @@ CRAP20SDK.h, CRBleDevice.h, CRBlueToothManager.h, libSpO2SDK.a
 
 **Handling the Bluetooth connection class of the central and peripherals, it is a singleton.**
 
-It conforms to：<CRBlueToothManagerDelegate>.
+It conforms to：CRBlueToothManagerDelegate
 
 - The current Bluetooth status of your iOS device
 
@@ -80,7 +80,7 @@ It conforms to：<CRBlueToothManagerDelegate>.
 
 **It is a singleton method that the SDK exposes the data processing logic of Bluetooth communication internally.**
 
-It conforms to：<CRAP20SDKDelegate>
+It conforms to：CRAP20SDKDelegate
 
 - Receive blood oxygen parameters.
 
