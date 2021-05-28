@@ -79,7 +79,11 @@
         return;
     }
     
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"选择设备" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    NSString *tipStr = @"选择设备";
+    if (deviceList.count <= 0) {
+        tipStr = @"暂未搜到符合的设备";
+    }
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:tipStr message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     for (int i = 0; i < deviceList.count; i++) {
         NSString *bleName = ((CRBleDevice *)deviceList[i]).bleName;
         UIAlertAction *action = [UIAlertAction actionWithTitle:bleName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -167,12 +171,17 @@
     [[CRAP20SDK shareInstance] didConnectDevice:device];
     //BLE指令读写回调协议
     [CRAP20SDK shareInstance].delegate = self;
-    //查询版本信息、序列号、Mac地址
-    [self queryDeviceInfo];
-    [self querySerialNumber];
-    [self queryMacAddress];
-    //默认设置-使能血氧数据上传
-    [self setSpo2EnableAction];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //查询版本信息、序列号、Mac地址
+        [self queryDeviceInfo];
+        [self querySerialNumber];
+        [self queryMacAddress];
+        
+        //默认设置-使能血氧数据上传
+        [self setSpo2EnableAction];
+    });
+    
     //更新UI
     self.deviceNameLabel.text = device.peripheral.name;
     [self loadMessureUI];
@@ -348,6 +357,9 @@
 
 //当前测量阶段
 - (NSString *)getMessureStage:(int)stage {
+    if (stage < 0 || stage > 5) {
+        return @"";
+    }
     NSArray *array = @[@"", @"准备阶段", @"正在测量", @"播报结果", @"脉率分析结果", @"测量完成"];
     NSString *str = array[stage];
     return str;

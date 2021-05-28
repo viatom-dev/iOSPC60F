@@ -1,15 +1,12 @@
 //
 //  CRAP20SDK.h
-//  CRAP20Demo
+//  Oximeter_Demo
 //
-//  Created by Creative on 2017/7/18.
-//  Copyright © 2017年 creative. All rights reserved.
+//  Created by csh on 2021/5/20.
 //
 
 #import <Foundation/Foundation.h>
 #import "CRBleDevice.h"
-
-
 
 /** 血氧报警查询类型 */
 typedef NS_ENUM(Byte, CRAP_20Spo2AlertConfigType)
@@ -337,6 +334,5 @@ typedef NS_ENUM(Byte, CRPC_60FCommanMessureStage)
  */
 - (void)setSpo2AlertState:(BOOL)alertOn Spo2LowValue:(int)spo2Low PrLowValue:(int)prLow PrHighValue:(int)prHigh PulseBeep:(BOOL)beepOn SensorAlert:(BOOL)sensorOn ForDevice:(CRBleDevice *)device;
 
+
 @end
-
-

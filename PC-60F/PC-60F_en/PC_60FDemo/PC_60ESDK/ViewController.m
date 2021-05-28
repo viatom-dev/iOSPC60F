@@ -79,7 +79,12 @@
         return;
     }
     
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Select device" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    NSString *tipStr = @"Select device";
+    if (deviceList.count <= 0) {
+        tipStr = @"No matching device has been found yet";
+    }
+    
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:tipStr message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     for (int i = 0; i < deviceList.count; i++) {
         NSString *bleName = ((CRBleDevice *)deviceList[i]).bleName;
         UIAlertAction *action = [UIAlertAction actionWithTitle:bleName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -167,12 +172,16 @@
     [[CRAP20SDK shareInstance] didConnectDevice:device];
     // BLE command read/write callback protocol
     [CRAP20SDK shareInstance].delegate = self;
-    // Query version information, serial number, Mac address
-    [self queryDeviceInfo];
-    [self querySerialNumber];
-    [self queryMacAddress];
-    // Default setting: enable blood oxygen data upload
-    [self setSpo2EnableAction];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // Query version information, serial number, Mac address
+        [self queryDeviceInfo];
+        [self querySerialNumber];
+        [self queryMacAddress];
+        // Default setting: enable blood oxygen data upload
+        [self setSpo2EnableAction];
+    });
+    
     // Update UI
     self.deviceNameLabel.text = device.peripheral.name;
     [self loadMessureUI];
@@ -294,6 +303,7 @@
 - (void)successdToSetSpo2ParamEnableFromDevice:(CRBleDevice *)device {
     NSLog(@"Successfully set blood oxygen parameters: %d", self.parameterSwitch.isOn);
 }
+
 /** Enable/disable upload of blood oxygen waveform to APP, 0x00 disable, 0x01 enable (default) */
 //【Set the blood oxygen waveform upload switch】
 - (void)setSpo2WaveEnable:(BOOL)beEnable {
@@ -304,6 +314,7 @@
     NSLog(@"Successfully set blood oxygen waveform: %d", self.waveformSwitch.isOn);
     //[[CRAP20SDK shareInstance] setMenuOptions:90 highPR:120 lowPR:60 spot:2 beepOn:1 forDevice:self.device];
 }
+
 /** Settings after successful BLE connection: Enable blood oxygen waveform and parameter upload to APP */
 - (void)setSpo2EnableAction {
     // Allow the device to automatically send blood oxygen waveform data to the APP
@@ -348,6 +359,9 @@
 
 // Current measurement stage
 - (NSString *)getMessureStage:(int)stage {
+    if (stage < 0 || stage > 5) {
+        return @"";
+    }
     NSArray *array = @[@"", @"Preparation stage", @"Is measuring", @"Broadcast results", @"Pulse rate analysis result", @"Pulse rate analysis result"];
     NSString *str = array[stage];
     return str;

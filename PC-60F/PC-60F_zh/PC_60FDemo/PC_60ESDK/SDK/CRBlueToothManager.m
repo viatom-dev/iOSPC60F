@@ -1,13 +1,13 @@
 //
 //  CRBlueToothManager.m
-//  PC300SDKDemo
+//  Oximeter_Demo
 //
-//  Created by Creative on 2018/2/1.
-//  Copyright © 2018年 creative. All rights reserved.
+//  Created by csh on 2021/5/20.
 //
 
 #import "CRBlueToothManager.h"
 #import "CRAP20SDK.h"
+
 @interface CRBlueToothManager ()<CBCentralManagerDelegate,CBPeripheralDelegate>
 /** 中心管理者 */
 @property (nonatomic, strong) CBCentralManager *centralManager;
@@ -94,7 +94,7 @@
         [self.centralManager scanForPeripheralsWithServices:@[] options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
         //    [self.centralManager scanForPeripheralsWithServices:nil options:nil];
     });
-    
+
 }
 #pragma mark 扫描设备
 - (void)startSearchDevicesForSeconds:(NSUInteger)seconds
@@ -171,7 +171,7 @@
     }
     else if([device.peripheral.name containsString:pc80b])
     {
-        
+
     }
     [self stopSearch];
     [_centralManager cancelPeripheralConnection:device.peripheral];
@@ -279,12 +279,12 @@
     // 🚫ZSY--TODO
     NSString *localName = [advertisementData objectForKey:@"kCBAdvDataLocalName"];
     localName = localName?localName:@"NULL";
-    
+
     [self.fitDevices addObject:[[CRBleDevice alloc] initDeviceWithPeripheral:peripheral BLEName:localName] ];
-    
+
     if (_modeState == 1)
     {
-        if (_delegate &&[_delegate respondsToSelector:@selector(bleManager:didFindDevice:)])
+        if (_delegate && [_delegate respondsToSelector:@selector(bleManager:didFindDevice:)])
         {
             [_delegate bleManager:self didFindDevice:self.fitDevices];
         }
@@ -300,7 +300,7 @@
     NSLog(@"-----didConnectPeripheral----");
         NSString *key = [self getKeyStringForPeripheral:peripheral];
         [self.outTimers[key] invalidate];
-    
+
         peripheral.delegate = self;
         [peripheral discoverServices:nil];
         return;
@@ -325,7 +325,7 @@
     {
         [self.delegate bleManager:self didFailToConnectDevice:[self getConnectedDeviceForPeripheral:peripheral] Error:error];
     }
-    
+
 }
 #pragma mark - --------------------------- peripheral Delegate
 #pragma mark -
@@ -333,7 +333,7 @@
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
     NSLog(@"--发现设备服务--");
-    
+
     NSArray *services = nil;
     if (error != nil)
     {
@@ -510,9 +510,9 @@
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(nonnull CBCharacteristic *)characteristic error:(nullable NSError *)error
 {
-    
+
     NSLog(@"---到这是去发现服务特征了---");
-    
+
     NSStringFromSelector(@selector(setName:));
     if (characteristic.isNotifying)
     {
@@ -561,8 +561,10 @@
 //
 //    }
     /*   调试用(-------------------结束) */
-    if (!data || !data.length)
+    if (!data || !data.length) {
         return;
+    }
+    
     CRBleDevice *device = [self getConnectedDeviceForPeripheral:peripheral];
     //数据不为空时，增加数据
     //PC100,PC200,PC300 共用
@@ -581,4 +583,3 @@
 
 
 @end
-

@@ -1,10 +1,10 @@
 //
 //  CRBleDevice.h
-//  PC300SDKDemo
+//  Oximeter_Demo
 //
-//  Created by Creative on 2018/2/1.
-//  Copyright © 2018年 creative. All rights reserved.
+//  Created by csh on 2021/5/20.
 //
+
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
@@ -67,4 +67,6 @@ struct waveData
 
 - (instancetype)initDeviceWithPeripheral:(CBPeripheral *)peripheral;
 - (instancetype)initDeviceWithPeripheral:(CBPeripheral *)peripheral BLEName:(NSString *)bleName;
+
 @end
+

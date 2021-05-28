@@ -138,13 +138,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Software version: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX6-Vq-rFV">
-                                        <rect key="frame" x="177.5" y="40" width="137" height="30"/>
+                                        <rect key="frame" x="167.5" y="40" width="137" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYZ-Nk-9rP">
-                                        <rect key="frame" x="314.5" y="40" width="60" height="30"/>
+                                        <rect key="frame" x="304.5" y="40" width="60" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="oa3-3i-LWq"/>
                                         </constraints>
@@ -313,7 +313,7 @@
                                     <constraint firstItem="9zq-r5-BCW" firstAttribute="top" secondItem="gCD-rU-7Ot" secondAttribute="bottom" constant="5" id="bZW-xj-BZ2"/>
                                     <constraint firstItem="5Bd-0K-dtj" firstAttribute="leading" secondItem="xiV-RJ-6KF" secondAttribute="leading" id="ddd-Ue-V3c"/>
                                     <constraint firstItem="0Xm-TX-60h" firstAttribute="leading" secondItem="xiV-RJ-6KF" secondAttribute="leading" id="e7n-4W-mkC"/>
-                                    <constraint firstItem="tX6-Vq-rFV" firstAttribute="leading" secondItem="XGZ-8B-ve0" secondAttribute="trailing" constant="20" id="g3b-1u-Msc"/>
+                                    <constraint firstItem="tX6-Vq-rFV" firstAttribute="leading" secondItem="XGZ-8B-ve0" secondAttribute="trailing" constant="10" id="g3b-1u-Msc"/>
                                     <constraint firstItem="kyF-Be-ChE" firstAttribute="leading" secondItem="xiV-RJ-6KF" secondAttribute="leading" id="gQF-hT-kVm"/>
                                     <constraint firstItem="tVm-r9-kV6" firstAttribute="centerY" secondItem="N2n-OM-V4J" secondAttribute="centerY" id="guI-85-TXl"/>
                                     <constraint firstItem="tVm-r9-kV6" firstAttribute="leading" secondItem="79W-SU-Naz" secondAttribute="trailing" constant="15" id="hFY-LM-fsu"/>

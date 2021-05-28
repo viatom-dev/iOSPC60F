@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7459E780261BFBC80086C226 /* CRBlueToothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7459E77E261BFBC80086C226 /* CRBlueToothManager.m */; };
 		747BB9A8256E01FB0009AD9A /* CRPodDeviceMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 747BB9A6256E01FB0009AD9A /* CRPodDeviceMenuView.m */; };
 		74B0893E256665E2003E0584 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B0893D256665E2003E0584 /* AppDelegate.m */; };
 		74B08944256665E2003E0584 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B08943256665E2003E0584 /* ViewController.m */; };
@@ -16,14 +15,11 @@
 		74B0894C256665E3003E0584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B0894A256665E3003E0584 /* LaunchScreen.storyboard */; };
 		74B0894F256665E3003E0584 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B0894E256665E3003E0584 /* main.m */; };
 		74B0896C25667209003E0584 /* CRHeartLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B0896B25667209003E0584 /* CRHeartLiveView.m */; };
-		BD6FF3202624271A00D99A82 /* libCRAP20SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6FF31F2624271A00D99A82 /* libCRAP20SDK.a */; };
+		F70985202660A092001D19CE /* liblibCRAP20SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F709851B2660A092001D19CE /* liblibCRAP20SDK.a */; };
+		F70985212660A092001D19CE /* CRBlueToothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F709851E2660A092001D19CE /* CRBlueToothManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7459E77B261BFBC80086C226 /* CRBleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRBleDevice.h; sourceTree = "<group>"; };
-		7459E77C261BFBC80086C226 /* CRAP20SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRAP20SDK.h; sourceTree = "<group>"; };
-		7459E77D261BFBC80086C226 /* CRBlueToothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRBlueToothManager.h; sourceTree = "<group>"; };
-		7459E77E261BFBC80086C226 /* CRBlueToothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRBlueToothManager.m; sourceTree = "<group>"; };
 		747BB9A6256E01FB0009AD9A /* CRPodDeviceMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRPodDeviceMenuView.m; sourceTree = "<group>"; };
 		747BB9A7256E01FB0009AD9A /* CRPodDeviceMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRPodDeviceMenuView.h; sourceTree = "<group>"; };
 		74B08939256665E2003E0584 /* PC_60ESDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PC_60ESDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +34,11 @@
 		74B0894E256665E3003E0584 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		74B0896A25667209003E0584 /* CRHeartLiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRHeartLiveView.h; sourceTree = "<group>"; };
 		74B0896B25667209003E0584 /* CRHeartLiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRHeartLiveView.m; sourceTree = "<group>"; };
-		BD6FF31F2624271A00D99A82 /* libCRAP20SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRAP20SDK.a; sourceTree = "<group>"; };
+		F709851B2660A092001D19CE /* liblibCRAP20SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblibCRAP20SDK.a; sourceTree = "<group>"; };
+		F709851C2660A092001D19CE /* CRAP20SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRAP20SDK.h; sourceTree = "<group>"; };
+		F709851D2660A092001D19CE /* CRBleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRBleDevice.h; sourceTree = "<group>"; };
+		F709851E2660A092001D19CE /* CRBlueToothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRBlueToothManager.m; sourceTree = "<group>"; };
+		F709851F2660A092001D19CE /* CRBlueToothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRBlueToothManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD6FF3202624271A00D99A82 /* libCRAP20SDK.a in Frameworks */,
+				F70985202660A092001D19CE /* liblibCRAP20SDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +80,7 @@
 				74B0896B25667209003E0584 /* CRHeartLiveView.m */,
 				747BB9A7256E01FB0009AD9A /* CRPodDeviceMenuView.h */,
 				747BB9A6256E01FB0009AD9A /* CRPodDeviceMenuView.m */,
-				74B0895B25666C1D003E0584 /* PC_60ESDK */,
+				F709851A2660A092001D19CE /* SDK */,
 				74B08945256665E2003E0584 /* Main.storyboard */,
 				74B08948256665E3003E0584 /* Assets.xcassets */,
 				74B0894A256665E3003E0584 /* LaunchScreen.storyboard */,
@@ -90,16 +90,16 @@
 			path = PC_60ESDK;
 			sourceTree = "<group>";
 		};
-		74B0895B25666C1D003E0584 /* PC_60ESDK */ = {
+		F709851A2660A092001D19CE /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				7459E77C261BFBC80086C226 /* CRAP20SDK.h */,
-				7459E77B261BFBC80086C226 /* CRBleDevice.h */,
-				7459E77D261BFBC80086C226 /* CRBlueToothManager.h */,
-				7459E77E261BFBC80086C226 /* CRBlueToothManager.m */,
-				BD6FF31F2624271A00D99A82 /* libCRAP20SDK.a */,
+				F709851C2660A092001D19CE /* CRAP20SDK.h */,
+				F709851D2660A092001D19CE /* CRBleDevice.h */,
+				F709851F2660A092001D19CE /* CRBlueToothManager.h */,
+				F709851E2660A092001D19CE /* CRBlueToothManager.m */,
+				F709851B2660A092001D19CE /* liblibCRAP20SDK.a */,
 			);
-			path = PC_60ESDK;
+			path = SDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				747BB9A8256E01FB0009AD9A /* CRPodDeviceMenuView.m in Sources */,
-				7459E780261BFBC80086C226 /* CRBlueToothManager.m in Sources */,
+				F70985212660A092001D19CE /* CRBlueToothManager.m in Sources */,
 				74B0896C25667209003E0584 /* CRHeartLiveView.m in Sources */,
 				74B08944256665E2003E0584 /* ViewController.m in Sources */,
 				74B0893E256665E2003E0584 /* AppDelegate.m in Sources */,
@@ -330,7 +330,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PC_60ESDK/PC_60ESDK",
+					"$(PROJECT_DIR)/PC_60ESDK/SDK",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.creative.PC-60ESDK";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -353,7 +355,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PC_60ESDK/PC_60ESDK",
+					"$(PROJECT_DIR)/PC_60ESDK/SDK",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.creative.PC-60ESDK";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
